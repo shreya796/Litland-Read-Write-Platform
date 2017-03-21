@@ -108,7 +108,7 @@ def post_list(request):
             Q(author__first_name__icontains=query)
             ).distinct()
 
-    return render(request,'blog/post_list.html', {'posts': posts})
+    return render(request,'blog/post_list.html', {'posts': posts},{'categories':categories})
 
 
 
