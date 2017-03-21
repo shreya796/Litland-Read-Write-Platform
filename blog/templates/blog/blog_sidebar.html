@@ -1,0 +1,40 @@
+<h4><a href="{% url 'category_list' %}">Categories</a></h4>
+{% for category in categories %}
+<h6><a href="{% url 'filtered_post_list' name=category.category_type num=category.pk %}">{{category.category_type}}</a></h6>
+{% endfor %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+            {%comment recent%}
+-------------------------------------------------------------------------------------------
+<div class="col-sm-3" style="padding-top: 20px;">
+	<div class="row">
+		<div class="col-sm-12 col-xs-6 text-default text-left side-widget">
+			<h4><a href="{% url 'post_list' %}">Recent posts</a></h4>
+			{% for recent_post in recent_posts %}
+			<h6><a href="{% url 'post_detail' pk=recent_post.pk %}">{{recent_post.title}}</a></h6>
+			{% endfor %}
+		</div>
+		<div class="col-sm-12 col-xs-6 text-default text-left side-widget">
+			<h4><a href="{% url 'post_list' %}">Recent Comments</a></h4>
+			{% for recent_comment in recent_comments %}
+			<h6>
+				<a href="{% url 'post_detail' pk=recent_comment.post.pk %}">
+				{{recent_comment.author}}
+				<span>on</span>
+				{{recent_comment.post.title}}
+				</a>
+			</h6>
+			{% endfor %}
+		</div>
+        {%endcomment%}

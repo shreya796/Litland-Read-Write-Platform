@@ -1,0 +1,153 @@
+{%extends 'blog/base.html' %}
+{%block part%}
+<body class="A1">
+<div class="page-header">
+
+    {%comment search bar%}
+  <form method='GET' action = '' >
+        <input type='text' placeholder='Search posts' name='q' value='{{request.GET.q}}'/>
+        <input type='submit' value='Search'>
+        </form>
+     {%endcomment%}
+
+
+        <h1><!__a href="/"__>Welcome to the LitLand !</h1>
+
+{%comment A%}
+        {%if user.is_authenticated%}
+         <a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
+        {%endif%}
+{%endcomment%}
+    </div>
+
+
+        
+<p> <h3 class="tagline">We admire creativity. </h3></body>
+<hr><br>
+
+
+    {%comment notes%}
+     <!scroll amount increases the speed, more is the scroll amount more is the speed>
+     <element onmouseover="myScript">
+                 </element>
+         {%endcomment%}
+
+
+{%block content%}
+
+<marquee direction="up" scrolldelay=0.1 scrollamount="8">
+
+
+{%comment A %}
+{% from django.contrib.auth.models import User %}
+
+{% if user.is_authenticated  %}
+   {% username = request.user.username %}
+    {% if post.author=username %}
+    {%endif%}
+ {%endcomment%}
+
+{% for post in posts  %}
+
+    <ul style="list-style-type:square;">
+    <div class="postA">
+
+         <li> <h4><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h4></li>
+
+
+        {% if user == post.author %}
+<a  href="{% url 'post_remove'  pk=post.pk %}">
+									<button type="button" class="btn btn-custom btn-margin">
+										<span class="glyphicon glyphicon-remove" ></span>
+								        Del
+								    </button>
+								</a>
+{%endif%}
+
+
+    </div>
+    </ul>
+
+{% endfor %}
+
+ </marquee>
+<script>
+         $(function() {
+    $('marquee').mouseover(function() {
+        $(this).attr('scrollamount',0);
+    }).mouseout(function() {
+         $(this).attr('scrollamount',12);
+    });
+
+});
+</script>
+
+
+{%endblock%}
+
+
+
+
+
+<!__use a 'name' attribute in all options which has to be the same, and make one of the values of name checked to ensure selection of 1 option out of all> <br>
+
+
+<!__DRAG AND DROP CODE >
+<p id="dragline" >Drag the sections that enthuse you to the shelf! </p>
+
+    <img id="todrag1" src="http://www.oxfordtoday.ox.ac.uk/sites/files/oxford/styles/ot_full_width/public/media_wysiwyg/Poetry%20MAIN.jpg?itok=LawREjSR" draggable="true" ondragstart="drag(event)" class="img-circle">
+&nbsp;&nbsp;
+
+    <img id="todrag2" src="http://humanmagnetsyndrome.com/wp-content/uploads/2013/10/articles.jpeg"  draggable="true" ondragstart="drag(event)" class="img-circle">
+&nbsp;&nbsp;
+{%comment nbsp%}
+nbsp if for putting space
+{%endcomment%}
+    <img id="todrag3" src="http://2.bp.blogspot.com/-qhvqtZg_h98/T1LXHV-UfTI/AAAAAAAACJQ/tCgU2yoJqBo/s1600/Imagem+Literatura.jpg"  draggable="true" ondragstart="drag(event)" class="img-circle">
+
+    &nbsp;&nbsp;
+
+    <img id="todrag4" src="http://www.tckpublishing.com/wp-content/uploads/2014/02/book-reviews-image.jpg"  draggable="true" ondragstart="drag(event)"  draggable="true" ondragstart="drag(event)" class="img-circle">
+
+
+</img>
+<div align="right">
+<div  ondrop="drop(event)" ondragover="allowDrop(event)"><img id="draginto" src="http://cdn.home-designing.com/wp-content/uploads/2013/03/Solovyoc-Designs-pinta-book-shelf.jpg"  class="img-thumbnail"/>  </div>
+<!__ do not make Id of division, or it will create a block separately using that id styling.Make id of img  ></div>
+
+
+<br>
+
+<br>
+<br>
+
+<!image hyperlink>
+<div align="center">
+    <br>
+
+   <br>
+    <p><div class="fb-like" data-href="{{request.build_absolute_url}}" data-layout="button_count" data-action="like" data-size="large" data-show-faces="true" data-share="true"></div>
+
+    <!__ for fb like button __>
+</p>
+
+
+ </div>
+
+<h2><div align="left"><a href ="{%url 'category_list' %} "> <b><font face="ArialBlack" color = "brown" > CATEGORIES </font></b></a></div></h2>
+
+
+
+
+{%endblock%}
+
+
+
+<!way of writing a for loop in html, posts is the instance created in views.py, post is the random variable of this file >
+
+             <!__to print a variable- this syntax. post is also the instance created in the python shell while publishing the post __>
+        <!__ end of for loop __>
+
+
+        <!__ by div tag the post names have appeared in separate lines  __>
+</body>

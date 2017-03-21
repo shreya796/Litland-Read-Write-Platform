@@ -1,0 +1,31 @@
+
+
+{% extends 'blog/base.html' %}
+{%block title%} Add new {%endblock%}
+
+
+{% block content %}
+    <h2 class="newpost">Add a new post</h2>
+		<form method="post" class="form-horizontal" action="" enctype="multipart/form-data">{% csrf_token %}
+        
+<! some portion commented in blog.css>
+
+    {%include 'blog/form-template.html'%}
+        <div class="form-group">
+
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;<button type="submit"   class="save btn btn-default">Submit</button >
+
+            {%comment%}
+                <button type="submit" class="save btn btn-default">Save</button >
+                   {%endcomment%}
+
+            </div>
+
+    </form>
+{% endblock %}
+
+
+            {%comment%}
+             <div class="col-sm-offset-2-col-sm-10"> </div>
+                <input type="delete"><a href = "{% url 'delete_post' pk=post.pk %}">Delete</a></input>
+            {%endcomment%}

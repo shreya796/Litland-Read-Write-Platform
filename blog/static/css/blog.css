@@ -1,0 +1,317 @@
+/*  <li class="">
+        <a href="{% url 'post_draft_list' %}"> <!--publish posts in draft-->
+           <span class="glyphicon glyphicon-edit"></span>&nbsp;
+           Pending Posts
+           </a>
+</li>*/
+
+
+
+
+/*h1.floating-box {
+    float: left;
+    width: 150px;
+    height: 75px;
+    margin: 10px;
+    border: 3px solid blue; 
+        }
+
+.after-box {
+    clear: left;
+} */
+
+.navbar-brand{
+    font-family: 'Satisfy',cursive;
+}/*if not satisfy then cursive*/
+
+#topNavBar{
+        font-family: 'comic sans Ms';
+}
+
+
+title
+{
+    color: red;
+    font-weight: bold;
+}
+
+body{
+
+      padding-left: 25px;
+  }
+
+  body.A1{
+  background:url("http://webdesignerdepot.s3.amazonaws.com/default-images/26.jpg");
+  }
+img{
+    height: 300px;
+    width: :300px;
+}
+/*.pic1{
+
+    border: black dotted;
+    float:center;
+}*/
+video{
+    border: blue dashed;
+}
+
+
+.page-header {
+    font-family: 'Lobster';
+}
+
+
+
+
+.top-menu, .top-menu:hover, .top-menu:visited {
+    color: #ffffff;
+    float: right;
+    font-size: 26pt;
+    margin-right: 20px;
+}
+
+.postA {
+    margin-bottom: 70px;
+}
+
+.postA :hover{
+ background-color: white;
+ /*display :block;*/
+}
+
+
+h3.newpost{
+    font-weight: bold;
+        font-family: 'Satisfy';
+        
+
+}
+/*element.class_name  */
+h4{
+    color: blue;
+        font-weight: bold;
+        font-family: 'Georgia';
+        font-style: italic;
+        font-size: 30px;
+        text-align: justify;
+        /* Css style will overwrite the size h4. Moreover advantage of h4 is we can access the post title */
+}
+
+p{
+        color: brown;
+        font-weight: bold;
+        font-family: 'Comic sans Ms';
+        font-style: italic;
+        font-size: 20px;
+        text-align: justify;
+}
+
+
+
+#dragline{
+    padding-left: 20px; 
+    font-family: 'Satisfy';
+     font-size:40px;
+     font-color:magenta;
+     font-style: normal;
+}
+
+
+
+h1 {
+	color: brown;
+	text-align: center;	
+	font-style: normal;
+	font-size: 70px;
+	font-weight: bold;
+}
+
+
+.tagline{
+    background:black;
+    color:white;
+    height: 35px;
+    width: 600px;
+    font-weight: bold;
+    font-size:30px; 
+    font-variant: small-caps;
+    text-align: center;
+    font-family: 'Lucida Sans Unicode'
+}
+
+table{
+    height:100px;
+    width: 200px;
+    padding:20px;
+    margin: 10px;
+    float:center;
+}
+
+#shop{
+    width:650px;
+    height:220px;
+    border: outset;
+
+}
+form{
+ 
+}
+#draginto{
+   width: 180px;
+    height:180px;
+   /* padding-right: 20px;*/
+   /*float: right;*/
+    /*background-attachment: fixed;*/
+    } 
+
+#todrag1{
+    height:260px;
+    width: 290px;
+    float:left;
+
+}
+
+#todrag2{
+    height:260px;
+    width: 290px;
+    float:left;
+    
+}
+
+
+#todrag3{
+    height:260px;
+    width: 290px;
+    float:left;
+}
+
+#todrag4{
+    height:260px;
+    width: 260px;
+    float:left;
+}
+
+
+
+#dialogue{
+    width:50px;
+    height: 50px;
+    background-color: gray;
+    border: :2px solid black;
+    
+}
+
+
+
+.date{
+    color:orange;
+    font-family:'Calibri'; 
+    font-weight:bold; 
+    font-style:italic;
+    font-size:25px;
+}
+
+    
+
+/*def post_new(request):
+    form = PostForm()
+    return render(request, 'blog/post_edit.html', {'form': form})
+    if request.method == "POST":
+    form = PostForm(request.POST)
+    else:
+    form = PostForm()
+
+    if form.is_valid():
+    post = form.save(commit=False)
+    post.author = request.user
+    post.published_date = timezone.now()
+    post.save()
+    return redirect('post_detail', pk=post.pk) */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ /*<script type="text/javascript" src="{{static_url}}js/blog.js">*/
+
+
+
+/*<img class="pic1" 
+src="http://3.imimg.com/data3/LF/QS/MY-2678925/online-shopping-portals-500x500.jpg" alt="ShopWorld"/>*/
+
+
+
+
+/*
+<Table border=2 >
+<tr><th colspan=2>Items available</th></tr>
+<tr><th rowspan=2>men's wear</th></tr>
+<td>Formals</td>
+<tr><th rowspan=2>women's ethnic wear</th></tr>
+<td>kurtis</td>
+<tr><th rowspan=2>women's footwear</th></tr>
+<td>flats/heels</td>
+<tr><th rowspan=2>men's footwear</th></tr>
+<td>sports shoes</td>
+</Table>*/
+
+
+
+
+
+
+/*
+image hyperlink
+<div align="right">
+      <a href = "">
+      <img Id="shop" src=" http://yeahlasvegas.com/wp-content/uploads/2016/06/mandalay-bay-retail-resort-shops-shopping-bags-1-1.jpg" alt= "Shop world">
+      </a>
+      </div>
+
+ */
+
+
+ /*  <div class="date">
+       published: {{ post.published_date }}
+        </div> 
+         <p>{{ post.text|linebreaksbr }}</p>  */
+
+
+/*
+
+<br>
+<label>You are required to fill this form before moving ahead.</label>
+<form>
+<label>Enter your name&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </label><input type= "text"/><br>
+<label>Enter your password&nbsp;</label><input type= "password"/><br>
+<label>Enter your email ID&nbsp;&nbsp;&nbsp;&nbsp;</label><input type= "text"/><br>
+<label>Enter your phone no&nbsp;&nbsp;</label><input type= "text"/><br>
+ <input type ="radio" name="gender" value="male" checked>male</input>
+<input type ="radio" name="gender" value="female" >female</input>
+
+<!__alert box>
+<div>
+<button id="show" onclick="msg()">Submit</button>
+
+</div>
+</form>
+
+<br><progress ></progress>  */
+
+
+
+/*{{ form.as_p }}
+        <button type="submit" class="save btn btn-default">Save</button>
+        */

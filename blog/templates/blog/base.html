@@ -1,0 +1,282 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="utf-8" >
+    <!__utf a unicode system only eg unicode- giving 4bytes to int in java __>
+
+        <title>{%block title%}Creativity unplugged{%endblock%}</title>
+        <!__ below 2 are the bootstrap references __>
+            <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+            <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+            <!__imports lobster font from google fonts__>
+            <link  rel="stylesheet" type="text/css"  href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext">  
+     <link  rel="stylesheet" type="text/css"  href="//fonts.googleapis.com/css?family=Satisfy">  
+
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!__CSS link has to come at the end>
+            <link rel="stylesheet" href="{% static 'css/blog.css' %}">  
+
+<!whichever link is included later can overwrite the first one in case of clash>
+
+
+<!Drag and drop script code>
+
+<script>
+function allowDrop(ev) {
+    ev.preventDefault();
+}
+
+function drag(ev) {
+    ev.dataTransfer.setData("text", ev.target.id);
+}
+
+function drop(ev) {
+    ev.preventDefault();
+    var data = ev.dataTransfer.getData("text");
+    ev.target.appendChild(document.getElementById(data));
+}
+
+</script>
+
+
+
+<!alert box>
+<script type="text/javascript">  //anonymous func
+
+
+
+function msg()
+{ document.getElementById('show').onclick=alert('please check the details carefully.');}
+
+
+
+
+
+
+</script>
+</head> 
+<!__Nav bar__>
+
+
+    {%comment%}
+    <body data-spy="scroll" data-target="#myScrollspy" data-offset="20" >
+    <ul class= "nav navbar-nav"  class="nav nav-pills nav-stacked">   so that tabs come in pill forms
+    {%endcomment%}
+
+
+
+<body>
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.7";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+{%comment%}
+
+https://developers.facebook.com/docs/plugins/comments
+for a particular design of navigation bar
+inverse, primary , info , default - 4 conceptual color classes available for navigation bar
+
+{%endcomment%}
+
+
+<nav class="navbar navbar-inverse"  id="myScrollspy">
+<div class="container-fluid">
+<div class="navbar-header"> <!__for categories __>
+
+<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#topNavBar">
+
+    <span class="icon-bar"></span> <!__for those 3 bars__>
+        <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+
+</button>                                                                           <!__ for 'categories' to get correctly displayed "__>
+
+{%comment categories%}
+<a class="navbar-brand"  href="{%url 'post_list'%}"><span class="glyphicon glyphicon-spinner">CATEGORIES</span></a>
+&nbsp;
+    {%endcomment%}
+
+
+</div>
+
+
+
+
+
+   <div class="collapse navbar-collapse" id="topNavBar">
+       <ul class= "nav navbar-nav">
+
+  <li  class="">
+      <a href ="{%url 'post_list' %} ">
+       <span class="glyphicon glyphicon-home" aria-hidden="true"></span>&nbsp;
+       Home
+   </a>   </li>
+
+
+             <li  class="">
+      <a href ="{%url 'post_detail' pk=4 %} ">
+       <span class="glyphicon glyphicon" aria-hidden="true"></span>&nbsp;
+       About
+   </a>   </li>
+
+
+
+{%comment%}
+
+       {% url 'post_poem' pk=post.pk %}
+       {%endfor%}
+      {%endcomment%}
+
+
+
+ {%comment%}
+           <li  class="">
+<a href ="{%url 'category_list' %} ">
+       <span class="glyphicon glyphicon-" aria-hidden="true">Categories</span>&nbsp;
+
+    {% for category in categories %}
+			<h6><a href="{% url 'filtered_post_list' name=category.category_type num=category.pk %}">{{category.category_type}}</a></h6>
+			{% endfor %}
+
+   </a>   </li>
+           {%endcomment%}
+
+
+
+
+<li  class="">
+    <a href="{% url 'filtered_post_list' name=category.category_type num=3 %}"><span class="glyphicon glyphicon-star" aria-hidden="true">Poetry</span></a>
+   </a>   </li>
+
+<li  class="">
+    <a href="{% url 'filtered_post_list' name=category.category_type num=2 %}"><span class="glyphicon glyphicon-certificate" aria-hidden="true">Articles</span></a>
+   </a>   </li>
+
+           <li  class="">
+    <a href="{% url 'filtered_post_list' name=category.category_type num=1 %}"><span class="glyphicon glyphicon-book" aria-hidden="true">Reviews</span></a>
+   </a>   </li>
+
+
+   </ul>
+
+
+
+
+
+
+
+   <form class="navbar-form navbar-left" role="search" method="GET" action=" " >
+   <div class="form-group">
+   <input type="text" class="form-control" name="q" placeholder="Search posts here" value="{{request.GET.q}}"/>  </div>
+
+   <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search" >&nbsp;Search</span></button>
+   </form>
+
+<!__br__>
+<ul class="nav navbar-nav navbar-right"   > <!__inverse is for black__>
+    {%if user.is_authenticated%}
+ <li  class="">
+       <a href = "{% url 'post_new'%}">
+       <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>&nbsp;
+       Add post
+   </a>
+   </li>
+    {%endif%}
+
+    {%if user.is_authenticated%}
+     <li  class="">
+       <a href = "{% url 'post_draft_list'%}">
+       <span class="glyphicon glyphicon-" aria-hidden="true"></span>&nbsp;
+       Drafts
+   </a>
+   </li>
+     {%endif%}
+
+{%if user.is_authenticated%}
+    <li  class="">
+       <a href = "{% url 'logout_view' %}">
+       <span class="glyphicon glyphicon-off" aria-hidden="true"></span>&nbsp;
+       Logout
+   </a>
+      </li>
+    {%endif%}
+
+    {%if not user.is_authenticated%}
+      <li  class="">
+       <a href = "{% url 'register' %}">
+       <span class="glyphicon glyphicon-check" aria-hidden="true"></span>&nbsp;
+       Register
+   </a>
+   </li>
+    {%endif%}
+
+{%if not user.is_authenticated%}
+    <li  class="">
+       <a href = "{% url 'login_user' %}">
+       <span class="glyphicon glyphicon-check" aria-hidden="true"></span>&nbsp;
+       Login
+   </a>
+   </li>
+     {%endif%}
+
+</ul>
+
+
+</nav>
+</div>
+ </div>
+
+
+
+
+         {%block part%}  <!__for post_list __>
+
+ <div class="content container">
+        <div class="row">
+            <div class="col-md-8">
+            {% block content %}  <!__for post_detail , post_edit __>
+            {% endblock %}
+            </div>
+        </div>
+    </div>
+
+
+</body>
+</html>
+
+{%endblock%}
+
+
+
+
+
+
+{%block body%}  <!__for registration form__>
+{%endblock%}
+
+
+
+
+{% block content5 %}  <!__for login.html __>
+            {% endblock %}
+
+
+
+{%block content2%}
+{%endblock%}
+
+{%block content4%}   <!__for category_list__>
+{%endblock%}
+
+
+
+

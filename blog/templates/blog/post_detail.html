@@ -1,0 +1,37 @@
+{% extends 'blog/base.html' %}
+{%block title%}Think.Deliver.{%endblock%}
+
+
+{% block content %}
+    <p class="postA">
+        {% if post.published_date %}
+            <div class="date">
+             {{ post.published_date }} </p>
+            </div>
+        {% endif %}
+        {%if user.is_authenticated%}
+        {%if post.author == user %}
+        <a class="btn btn-default" href="{% url 'post_edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+{%endif%}
+{%endif%}
+        <h4>{{ post.title }}</h4>
+        <p >{{ post.text|linebreaksbr }}</p>
+
+        {%comment%}
+
+         {%if post.get_full_name%}
+        <p>Author: {{post.author.get_full_name}}</p>
+        {%endif%}
+        {%endcomment%}
+
+
+             <p>Author: {{post.author}}</p>
+
+    <p><div class="fb-like" data-href="{{request.build_absolute_url}}" data-layout="box_count" data-action="like" data-size="large" data-show-faces="true" data-share="true"></div></p>
+
+        <div class="fb-comments" data-href="{{request.build_absolute_url}}" data-numposts="5"></div>
+    </div>
+{% endblock %}
+
+
+<!so that only the logged in user can edit post>

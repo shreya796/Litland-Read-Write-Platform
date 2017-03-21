@@ -1,0 +1,23 @@
+
+{% extends 'blog/base.html' %}
+{% block content4 %}
+
+
+			{% for category in categories %}
+								<a href="{% url 'filtered_post_list' name=category.category_type num=category.pk %}" ><h2>{{category.category_type}}</h2></a>
+								{% if user.is_superuser %}
+								<a class="pull-right" href="{% url 'category_remove' name=category.category_type pk=category.pk %}">
+									<button type="button" class="btn btn-custom btn-margin">
+										<span class="glyphicon glyphicon-remove" ></span>
+								        Delete
+								    </button>
+								</a>
+								{% endif %}
+
+			{% endfor %}
+
+
+{% endblock %}
+
+
+ {% include 'blog/blog_sidebar.html' %}
