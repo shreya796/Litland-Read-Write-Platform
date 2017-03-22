@@ -118,25 +118,25 @@ inverse, primary , info , default - 4 conceptual color classes available for nav
 Home
 </a>   </li>
 
-{%comment%}
+
 <li  class="">
 <a href ="{%url 'post_detail' pk=4 %} ">
 <span class="glyphicon glyphicon" aria-hidden="true"></span>&nbsp;
 About
 </a>   </li>
-{%endcomment%}
+{%comment%}{%endcomment%}
 
 
 
-
+{%comment%}
 <li  class="">
 <a href ="{%url 'category_list' %} ">
 <span class="glyphicon glyphicon-" aria-hidden="true">Categories</span>&nbsp;
-{%comment%}
+
 {%endcomment%}
 
 
-{%comment%}
+
 
 <li  class="">
 <a href="{% url 'filtered_post_list' name=category.category_type num=3 %}"><span class="glyphicon glyphicon-star" aria-hidden="true">Poetry</span></a>
@@ -149,7 +149,7 @@ About
 <li  class="">
 <a href="{% url 'filtered_post_list' name=category.category_type num=1 %}"><span class="glyphicon glyphicon-book" aria-hidden="true">Reviews</span></a>
 </a>   </li>
-{%endcomment%}
+{%comment%}{%endcomment%}
 
 </ul>
 
