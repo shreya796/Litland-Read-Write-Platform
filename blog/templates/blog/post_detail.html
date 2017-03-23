@@ -17,9 +17,9 @@
         <h4>{{ post.title }}</h4>
         <p >{{ post.text|linebreaksbr }}</p>
 
-        {%comment%}
-
+        {%comment A%}
          {%if post.get_full_name%}
+        }
         <p>Author: {{post.author.get_full_name}}</p>
         {%endif%}
         {%endcomment%}

@@ -28,34 +28,22 @@
 function allowDrop(ev) {
 ev.preventDefault();
 }
-
 function drag(ev) {
 ev.dataTransfer.setData("text", ev.target.id);
 }
-
 function drop(ev) {
 ev.preventDefault();
 var data = ev.dataTransfer.getData("text");
 ev.target.appendChild(document.getElementById(data));
 }
-
 </script>
 
 
 
 <!alert box>
 <script type="text/javascript">  //anonymous func
-
-
-
 function msg()
 { document.getElementById('show').onclick=alert('please check the details carefully.');}
-
-
-
-
-
-
 </script>
 </head> 
 <!__Nav bar__>
@@ -294,7 +282,4 @@ Login
 
 {%block content4%}   <!__for category_list__>
 {%endblock%}
-
-
-
 
