@@ -1,21 +1,21 @@
 {%extends 'blog/base.html' %}
 {%block part%}
-<body class="A1">  <!--background image - put in CSS file -->
+
+<!--class A1  background image - put in CSS file -->
+<body bgcolor="white">  
 
 
-{%comment search bar%}
-<form method='GET' action = '' >
-<input type='text' placeholder='Search posts' name='q' value='{{request.GET.q}}'/>
-<input type='submit' value='Search'>
-</form>
-{%endcomment%}
+<!--div class="page-header"-->
+<div ><h1 style="color: brown;
+    text-align: center; 
+    font-style: italic;
+    font-size: 70px;
+    font-weight: bold;
+    font-family:Eras bold ITC;">Savouring Creativity ~</h1></div>
 
 
-<div class="page-header"><h1>Savouring Creativity ~</h1></div>
-
-
-
-<p> <h3 class="tagline">To admire and foster the tinge of content writing.</h3></body>
+ <!--h3.tagline class-->
+<p> <h3 style= "background:Lavender; color:brown; height: 35px; width: 1000px;font-weight: bold; font-size:30px; font-variant: small-caps; text-align: center; font-family:Lucida Sans Unicode;">To admire and foster the tinge of content writing.</style></h3></body>
 <hr><br>
 
 
@@ -75,20 +75,25 @@ $(this).attr('scrollamount',12);
 
 
 
-<!__use a 'name' attribute in all options which has to be the same, and make one of the values of name checked to ensure selection of 1 option out of all> <br>
+<!__use a 'name' attribute in all options which has to be the same, and make one of the values of name checked to ensure selection of 1 option out of all> 
 
-<br><br><br><br>
-<!__DRAG AND DROP CODE >
-<p id="dragline" >Drag the sections that enthuse you to the shelf! </p>
+<br><br>
+
+
+
+<p id="dragline" style=" padding-left: 20px; 
+    font-family: 'Papyrus';
+     font-size:40px;
+     font-style: italic;
+     font-color:magenta;
+     font-style: normal;">Drag the sections that enthuse you to the shelf! </p>
 
 <img id="todrag1" src="http://www.oxfordtoday.ox.ac.uk/sites/files/oxford/styles/ot_full_width/public/media_wysiwyg/Poetry%20MAIN.jpg?itok=LawREjSR" draggable="true" ondragstart="drag(event)" class="img-circle">
 &nbsp;&nbsp;
 
 <img id="todrag2" src="http://humanmagnetsyndrome.com/wp-content/uploads/2013/10/articles.jpeg"  draggable="true" ondragstart="drag(event)" class="img-circle">
 &nbsp;&nbsp;
-{%comment nbsp%}
-nbsp if for putting space
-{%endcomment%}
+
 <img id="todrag3" src="http://2.bp.blogspot.com/-qhvqtZg_h98/T1LXHV-UfTI/AAAAAAAACJQ/tCgU2yoJqBo/s1600/Imagem+Literatura.jpg"  draggable="true" ondragstart="drag(event)" class="img-circle">
 
 &nbsp;&nbsp;
