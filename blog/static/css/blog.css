@@ -40,9 +40,11 @@ body{
       padding-left: 25px;
   }
 
-  body.A1{
+  /*body.A1{
   background:url("http://webdesignerdepot.s3.amazonaws.com/default-images/26.jpg");
-  }
+  }*/
+
+
 img{
     height: 300px;
     width: :300px;
@@ -111,8 +113,9 @@ p{
 
 #dragline{
     padding-left: 20px; 
-    font-family: 'Satisfy';
+    font-family: 'Papyrus';
      font-size:40px;
+     font-style: italic;
      font-color:magenta;
      font-style: normal;
 }
@@ -122,17 +125,18 @@ p{
 h1 {
 	color: brown;
 	text-align: center;	
-	font-style: normal;
+	font-style: italic;
 	font-size: 70px;
 	font-weight: bold;
+    font-family: 'Eras bold ITC'
 }
 
 
 .tagline{
-    background:black;
-    color:white;
+    background:Lavender;
+    color:brown;
     height: 35px;
-    width: 600px;
+    width: 1000px;
     font-weight: bold;
     font-size:30px; 
     font-variant: small-caps;
