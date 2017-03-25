@@ -30,15 +30,15 @@
 
 <marquee direction="up" scrolldelay=0.1 scrollamount="9">
 
-
+<!--style="list-style-type:square;" -->
 
 {% for post in posts  %}
 
 {%if post.title != "ABOUT" %}
-<ul style="list-style-type:square;">
+<ul  >
 <div class="postA">
 
-<li> <h4><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h4></li>
+<li > <h4><a href="{% url 'post_detail' pk=post.pk %}" >{{ post.title }}</a></h4></li>
 {%endif%}
 
 {% if user == post.author %}
@@ -124,21 +124,33 @@ $(this).attr('scrollamount',12);
 
 
 </div>
-<br> <br>
-<h2><div align="left"><a href ="{%url 'category_list' %} "> <b><font face="ArialBlack" color = "brown" > CATEGORIES </font></b></a></div></h2>
-<br> <br> <br>
+<br> <br><br> <br><br> <br>
 
+
+
+
+{% for category in categories %}
+<h1><a href="{% url 'filtered_post_list' name=category.category_type num=category.pk %}">{{category.category_type}}</a></h1>
+{% endfor %}
 
 
 {%endblock%}
 
 
+<!--
+way of writing a for loop in html, posts is the instance created in views.py, post is the random variable of this file 
+to print a variable- this syntax. post is also the instance created in the python shell while publishing the post 
+ end of for loop 
+by div tag the post names have appeared in separate lines 
 
-<!way of writing a for loop in html, posts is the instance created in views.py, post is the random variable of this file >
-
-<!__to print a variable- this syntax. post is also the instance created in the python shell while publishing the post __>
-<!__ end of for loop __>
+-->
 
 
-<!__ by div tag the post names have appeared in separate lines  __>
+
+
+
+
+
+
+
 </body>

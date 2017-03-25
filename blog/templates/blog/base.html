@@ -4,26 +4,23 @@
 <html>
 <head>
 <meta charset="utf-8" >
-<!__utf a unicode system only eg unicode- giving 4bytes to int in java __>
+<!--utf a unicode system only eg unicode- giving 4bytes to int in java -->
 
-<title>{%block title%}Savouring Creativity{%endblock%}</title>
-<!__ below 2 are the bootstrap references __>
+<title>{%block title%}SavouringCreativity{%endblock%}</title>
+<!--below 2 are the bootstrap references -->
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-<!__imports lobster font from google fonts__>
+<!--imports lobster font from google fonts-->
 <link  rel="stylesheet" type="text/css"  href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext">  
 <link  rel="stylesheet" type="text/css"  href="//fonts.googleapis.com/css?family=Satisfy">  
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
-<!__CSS link has to come at the end>
+<!--CSS link has to come at the end-->
 <link rel="stylesheet" href="{% static 'css/blog.css' %}">  
 
-<!whichever link is included later can overwrite the first one in case of clash>
 
-
-<!Drag and drop script code>
 
 <script>
 function allowDrop(ev) {
@@ -77,9 +74,9 @@ inverse, primary , info , default - 4 conceptual color classes available for nav
 {%endcomment%}
 
 
-<nav class="navbar navbar-light bg-faded"  id="myScrollspy">
+<nav class="navbar navbar-light "  id="myScrollspy">
 <div class="container-fluid">
-<div class="navbar-header"> <!__for categories __>
+<div class="navbar-header"> 
 
 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#topNavBar">
 
@@ -110,7 +107,7 @@ inverse, primary , info , default - 4 conceptual color classes available for nav
 
 <li  class="">
 <a href ="{%url 'post_detail' pk=4 %} ">
-<font size="5" ><span class="glyphicon glyphicon-info" aria-hidden="true">About</span></font>&nbsp;
+<font size="5" ><span class="glyphicon glyphicon-hand-o-right" aria-hidden="true">About</span></font>&nbsp;
 
 </a>   </li>
 
@@ -118,28 +115,38 @@ inverse, primary , info , default - 4 conceptual color classes available for nav
 
 
 
-<li  class="">
-<a href ="{%url 'category_list' %} ">
-<font size="5" ><span class="glyphicon glyphicon-" aria-hidden="true">Categories</span></font>&nbsp;
-</a>
+<li >
+
+<span class="glyphicon glyphicon-" aria-hidden="true">
+
+ <div class="dropdown">
+  <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" 
+  style="font-family:serif; font-size: 22px;">
+  Categories
+  <span class="caret"></span></button>
+  <ul class="dropdown-menu">
+    <li><a href="{% url 'filtered_post_list' name=category.category_type num=3 %}" 
+    style="font-family:fantasy; font-size: 22px;color: brown;">
+    Poems</a></li>
+
+    <li><a href="{% url 'filtered_post_list' name=category.category_type num=2 %}"  
+     style="font-family:fantasy; font-size: 22px;color: brown;">
+    Articles</a></li>
+    <li><a href="{% url 'filtered_post_list' name=category.category_type num=1 %}"  
+     style="font-family:fantasy; font-size: 22px;color: brown;">
+    Reviews</a></li>
+  </ul>
+</div> 
+</span>&nbsp;
+
 </li>
+
 </ul>
 
 
-{%comment%}
-<li  class="">
-<a href="{% url 'filtered_post_list' name=category.category_type num=3 %}"><span class="glyphicon glyphicon-star" aria-hidden="true">Poetry</span></a>
-</a>   </li>
 
-<li  class="">
-<a href="{% url 'filtered_post_list' name=category.category_type num=2 %}"><span class="glyphicon glyphicon-certificate" aria-hidden="true">Articles</span></a>
-</a>   </li>
 
-<li  class="">
-<a href="{% url 'filtered_post_list' name=category.category_type num=1 %}"><span class="glyphicon glyphicon-book" aria-hidden="true">Reviews</span></a>
-</a>   </li>
 
-{%endcomment%}
 
 
 
@@ -153,7 +160,7 @@ inverse, primary , info , default - 4 conceptual color classes available for nav
 <div class="form-group">
 <input type="text" class="form-control" name="q" placeholder="Articles Poems Reviews" value="{{request.GET.q}}"/>  </div>
 
-<button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-search" >Search</span></button>
+<button type="submit" class="btn btn-primary" style="font-family:serif; font-size: 15px;"><span class="glyphicon glyphicon-search" >Search</span></button>
 </form>
 
 <ul class="nav navbar-nav navbar-right"   > <!__ nav navbar-nav navbar-right__>
@@ -163,32 +170,35 @@ inverse, primary , info , default - 4 conceptual color classes available for nav
 
 
 {%if user.is_authenticated%}
-<div  class="nav navbar-nav navbar-left">
+<ul class= "nav navbar-nav">
+<li  class="nav navbar-nav navbar-left">
 <a href = "{% url 'post_new'%}">
-<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>&nbsp;
-Add post&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<span class="glyphicon glyphicon-plus" aria-hidden="true"><font size="5" >Addpost</font></span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 </a>
-</div>
+</li>
 
 
 
-<div  class="nav navbar-nav navbar-left">
+<li  class="nav navbar-nav navbar-left">
 <a href = "{% url 'post_draft_list'%}">
-<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>&nbsp;
-Drafts&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<span class="glyphicon glyphicon-" aria-hidden="true"><font size="5" >Drafts</font></span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 </a>
-</div>
+</li>
 
 
 
-<div  class="nav navbar-nav navbar-right">
+<li  class="nav navbar-nav navbar-right">
 <a href = "{% url 'logout_view' %}">
-<span class="glyphicon glyphicon-off" aria-hidden="true"></span>&nbsp;
-Logout&nbsp;&nbsp;&nbsp;
+<span class="glyphicon glyphicon-off" aria-hidden="true"><font size="5" >Logout</font></span>&nbsp;
+&nbsp;&nbsp;&nbsp;
 </a>
-</div>
-{%endif%}
+</li>
 
+</ul>
+{%endif%}
+<!--if we use ul class navnavbar nav and then insert urls n li tag , create button when we go to that link.  dont use div, use ul and li tags-->
 
 
 
@@ -225,11 +235,7 @@ Logout&nbsp;&nbsp;&nbsp;
 
 
 
-{%comment%}
-{% for category in categories %}
-<h1><a href="{% url 'filtered_post_list' name=category.category_type num=category.pk %}">{{category.category_type}}</a></h1>
-{% endfor %}
-{%endcomment%}
+
 
 
 
@@ -261,14 +267,15 @@ Logout&nbsp;&nbsp;&nbsp;
 
 
 
+<!--
+{%block body%}  
+{%endblock%}-->
 
-{%block body%}  <!__for registration form__>
-{%endblock%}
+{% block register %}  <!__for registration form__>
+{% endblock %}
 
 
-
-
-{% block content5 %}  <!__for login.html __>
+{% block login %}  <!__for login.html __>
 {% endblock %}
 
 
@@ -279,3 +286,23 @@ Logout&nbsp;&nbsp;&nbsp;
 {%block content4%}   <!__for category_list__>
 {%endblock%}
 
+
+
+
+{%comment%}
+
+<a href ="{%url 'category_list' %} "></a>
+
+<li  class="">
+<a href="{% url 'filtered_post_list' name=category.category_type num=3 %}"><span class="glyphicon glyphicon-star" aria-hidden="true">Poetry</span></a>
+</a>   </li>
+
+<li  class="">
+<a href="{% url 'filtered_post_list' name=category.category_type num=2 %}"><span class="glyphicon glyphicon-certificate" aria-hidden="true">Articles</span></a>
+</a>   </li>
+
+<li  class="">
+<a href="{% url 'filtered_post_list' name=category.category_type num=1 %}"><span class="glyphicon glyphicon-book" aria-hidden="true">Reviews</span></a>
+</a>   </li>
+
+{%endcomment%}
