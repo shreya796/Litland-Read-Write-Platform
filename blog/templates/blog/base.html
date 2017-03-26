@@ -105,6 +105,10 @@ inverse, primary , info , default - 4 conceptual color classes available for nav
 </a>   </li>
 
 
+
+
+
+
 <li  class="">
 <a href ="{%url 'post_detail' pk=4 %} ">
 <font size="5" ><span class="glyphicon glyphicon-hand-o-right" aria-hidden="true">About</span></font>&nbsp;
@@ -125,24 +129,37 @@ inverse, primary , info , default - 4 conceptual color classes available for nav
   Categories
   <span class="caret"></span></button>
   <ul class="dropdown-menu">
+
+  {%for category in categories%}
+  {%if category.category_type == "Poems"%}
+  {%endif%}
+  {%endfor%}
+
+
     <li><a href="{% url 'filtered_post_list' name=category.category_type num=3 %}" 
     style="font-family:fantasy; font-size: 22px;color: brown;">
     Poems</a></li>
 
+
+
     <li><a href="{% url 'filtered_post_list' name=category.category_type num=2 %}"  
      style="font-family:fantasy; font-size: 22px;color: brown;">
     Articles</a></li>
+
+
     <li><a href="{% url 'filtered_post_list' name=category.category_type num=1 %}"  
      style="font-family:fantasy; font-size: 22px;color: brown;">
     Reviews</a></li>
+
+
   </ul>
 </div> 
+
 </span>&nbsp;
 
 </li>
 
 </ul>
-
 
 
 
