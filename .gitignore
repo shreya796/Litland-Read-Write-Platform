@@ -1,5 +1,6 @@
 *.pyc
 *~
-__pycache__
+blog/__pycache__
+mysite/__pycache__
 myvenv
 .DS_Store
