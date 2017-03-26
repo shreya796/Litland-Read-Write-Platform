@@ -32,14 +32,20 @@ from django.contrib.auth.models import User
 def category_remove(request, name, pk):
     category = get_object_or_404(Category, pk=pk)
     category.delete()
+    categories = Category.objects.all
+    context = {
+        'categories': categories
+    }
 
-    return redirect('blog.views.category_list')
+    return redirect('category_list',context)
+    #return redirect('blog.views.category_list')
 
 
 def post_remove(request, pk):
     post = get_object_or_404(Post, pk=pk)
     post.delete()
-    return redirect('blog.views.post_list')
+    posts=Post.objects.all()
+    return redirect('post_list',{'posts':posts})
 
 
 def filtered_post_list(request, name, num):
@@ -206,26 +212,19 @@ def register(request):
         user.set_password(password)
         user.save()
         user = authenticate(username=username, password=password, email=email)
-        """
         subject = "Thank you for registering"
         message = "Thank you for registering at CreativityUnplugged. Welcome to the LitLand."
         from_email = settings.EMAIL_HOST_USER
         to_list = [user.email, settings.EMAIL_HOST_USER]
         send_mail(subject,message,from_email,to_list,fail_silently=True)
         messages.success(request,'Thank you for registering!')
-        """
 
-        """
         if user is not None:
             if user.is_active:
                 login(request, user)
-                #posts = Post.objects.all()
-                posts = Post.objects.filter(user=request.author)
-                #after they login we want to redirect them to homepg
-                return render(request, 'blog/post_list.html', {'posts': posts}) #first posts means that term will be encountered in the template, last posts means it is the dictionary through which that posts has to search
-            #if the din login, return that try again->here is a blank form for u """
+                posts = Post.objects.all()
+                return render(request, 'blog/post_list.html', {'posts': posts}) 
         #return render(request.self.template_name,{'form':form})
-        #posts = Post.objects.all()
         return render(request, 'blog/login.html')
 
 

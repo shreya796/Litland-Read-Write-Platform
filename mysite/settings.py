@@ -28,6 +28,15 @@ DEBUG = True
 ALLOWED_HOSTS = ['127.0.0.1', '.pythonanywhere.com']
 
 
+
+
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'shreya07.gupta@gmail.com'
+EMAIL_HOST_PASSWORD = '7shrey96@7890'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+
+
 # Application definition
 
 INSTALLED_APPS = [
