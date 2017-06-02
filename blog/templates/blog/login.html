@@ -3,6 +3,10 @@
 
 
 {% block login %}
+
+{%if q%}
+<font style="font-family: arial; color: red;"> You have been successfully registered. Please login to continue.</font>
+{%endif%}
 <div class="container-fluid">
 
 <div class="row">
@@ -10,6 +14,7 @@
 <div class="panel panel-default">
 <div class="panel-body">
 <h3>Log In</h3>
+{%comment aa%}  {%endcomment%}
 {% if error_message %}
 <p><strong>{{ error_message }}</strong></p>
 {% endif %}

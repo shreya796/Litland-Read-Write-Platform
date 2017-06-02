@@ -32,20 +32,23 @@ from django.contrib.auth.models import User
 def category_remove(request, name, pk):
     category = get_object_or_404(Category, pk=pk)
     category.delete()
-    categories = Category.objects.all
-    context = {
-        'categories': categories
-    }
-
-    return redirect('category_list',context)
+    return HttpResponse("<html><h1>Category successfully deleted</h1></html>")
     #return redirect('blog.views.category_list')
 
-
+from django.core.urlresolvers import reverse
 def post_remove(request, pk):
     post = get_object_or_404(Post, pk=pk)
+    #u = Post.objects.get(pk=id).delete()
     post.delete()
-    posts=Post.objects.all()
-    return redirect('post_list',{'posts':posts})
+    return HttpResponse("<html><h1>Post successfully deleted</h1></html>")
+    
+    """posts=Post.objects.all()
+    categories = Category.objects.all
+    context = {
+    'categories': categories,
+    'posts':posts,
+    }"""
+    
 
 
 def filtered_post_list(request, name, num):
@@ -218,15 +221,20 @@ def register(request):
         to_list = [user.email, settings.EMAIL_HOST_USER]
         send_mail(subject,message,from_email,to_list,fail_silently=True)
         messages.success(request,'Thank you for registering!')
-
+        
         if user is not None:
             if user.is_active:
+            	q=1
+            	return render(request,'blog/login.html', {'q': q})
+        return render(request,'blog/login.html', {'q': q})
+        """
                 login(request, user)
                 posts = Post.objects.all()
                 return render(request, 'blog/post_list.html', {'posts': posts}) 
         #return render(request.self.template_name,{'form':form})
-        return render(request, 'blog/login.html')
-
+        """
+        
+        #return render(request, 'blog/login.html')
 
     context ={
         "form": form,

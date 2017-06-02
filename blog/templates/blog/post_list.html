@@ -19,6 +19,87 @@
 <hr><br>
 
 
+
+
+
+<div class="slideshow-container">
+
+
+<div class="mySlides fade">
+  <!--<div class="numbertext">3 / 4</div>-->
+  <img src="https://www.ringling.edu/sites/default/files/styles/adaptive/public/CW_word_0.png?itok=ApJ5is5P" style="width:100%">
+  <div class="text">Book Reviews</div>
+</div>
+
+
+
+<div class="mySlides fade">
+
+  <img src="https://libwww.freelibrary.org/assets/images/explore/poetry.jpg" style="width:100%">
+  <div class="text">Poetry</div>
+</div>
+
+<div class="mySlides fade">
+
+  <img src="http://2.bp.blogspot.com/-qhvqtZg_h98/T1LXHV-UfTI/AAAAAAAACJQ/tCgU2yoJqBo/s1600/Imagem+Literatura.jpg" style="width:100%">
+  <div class="text">Literature</div>
+</div>
+
+<div class="mySlides fade">
+
+  <img src="https://www.seoclerk.com/pics/466936-17Ww941469426222.jpg" style="width:100%">
+  <div class="text">Articles</div>
+</div>
+
+<div class="mySlides fade">
+
+  <img src="http://www.doceblant.com/wp-content/uploads/2016/12/Book-Reviews.png" style="width:90%">
+  <div class="text">Book Reviews</div>
+</div>
+
+</div>
+<br>
+
+<div style="text-align:center">
+  <span class="dot"></span> 
+  <span class="dot"></span> 
+  <span class="dot"></span> 
+  <span class="dot"></span> 
+  <span class="dot"></span> 
+</div>
+
+
+
+<script>
+
+
+var slideIndex = 0;
+showSlides();
+
+function showSlides() {
+    var i;
+    var slides = document.getElementsByClassName("mySlides");
+    var dots = document.getElementsByClassName("dot");
+    for (i = 0; i < slides.length; i++) {
+       slides[i].style.display = "none";  
+    }
+    slideIndex++;
+    if (slideIndex> slides.length) {slideIndex = 1}    
+    for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+    }
+    slides[slideIndex-1].style.display = "block";  
+    dots[slideIndex-1].className += " active";
+    setTimeout(showSlides, 2000); // Change image every 2 seconds
+}
+
+
+
+
+</script>
+
+
+
 {%comment notes%}
 <!--scroll amount increases the speed, more is the scroll amount more is the speed-->
 <element onmouseover="myScript">
@@ -28,12 +109,10 @@
 
 {%block content%}
 
-<marquee direction="up" scrolldelay=0.1 scrollamount="9">
+<!--marquee direction="up" scrolldelay=0.3 scrollamount="15"-->
+<marquee id="test" behavior="scroll" direction="up" height="300" scrolldelay="10" scrollamount="10" onMouseOver="document.all.test.stop()" onMouseOut="document.all.test.start()">
 
 <!--style="list-style-type:square;" -->
-
-
-
 
 {% for post in posts  %}
 
@@ -46,11 +125,11 @@
 
 {% if user == post.author %}
 <a  href="{% url 'post_remove'  pk=post.pk %}">
-		<button type="button" class="btn btn-custom btn-margin">
-			<span class="glyphicon glyphicon-remove" ></span>
-	        Del
-	    </button>
-	</a>
+        <button type="button" class="btn btn-custom btn-margin">
+            <span class="glyphicon glyphicon-remove" ></span>
+            Del
+        </button>
+    </a>
 {%endif%}
 
 
@@ -58,68 +137,20 @@
 </ul>
 
 {% endfor %}
-<br><br>
+<br>
 
 </marquee>
-<script>
-$(function() {
-$('marquee').mouseover(function() {
-$(this).attr('scrollamount',0);
-}).mouseout(function() {
-$(this).attr('scrollamount',12);
-});
-});
-</script>
+
 
 
 {%endblock%}
 
 
-
-
-
-<!__use a 'name' attribute in all options which has to be the same, and make one of the values of name checked to ensure selection of 1 option out of all> 
-
-<br><br>
-
-
-
-<p id="dragline" style=" padding-left: 20px; 
-    font-family: 'Papyrus';
-     font-size:40px;
-     font-style: italic;
-     font-color:magenta;
-     font-style: normal;">Drag the sections that enthuse you to the shelf! </p>
-
-<img id="todrag1" src="http://www.oxfordtoday.ox.ac.uk/sites/files/oxford/styles/ot_full_width/public/media_wysiwyg/Poetry%20MAIN.jpg?itok=LawREjSR" draggable="true" ondragstart="drag(event)" class="img-circle">
-&nbsp;&nbsp;
-
-<img id="todrag2" src="http://humanmagnetsyndrome.com/wp-content/uploads/2013/10/articles.jpeg"  draggable="true" ondragstart="drag(event)" class="img-circle">
-&nbsp;&nbsp;
-
-<img id="todrag3" src="http://2.bp.blogspot.com/-qhvqtZg_h98/T1LXHV-UfTI/AAAAAAAACJQ/tCgU2yoJqBo/s1600/Imagem+Literatura.jpg"  draggable="true" ondragstart="drag(event)" class="img-circle">
-
-&nbsp;&nbsp;
-
-<img id="todrag4" src="http://www.tckpublishing.com/wp-content/uploads/2014/02/book-reviews-image.jpg"  draggable="true" ondragstart="drag(event)"  draggable="true" ondragstart="drag(event)" class="img-circle">
-
-
-</img>
-<div align="right">
-<div  ondrop="drop(event)" ondragover="allowDrop(event)"><img id="draginto" src="http://cdn.home-designing.com/wp-content/uploads/2013/03/Solovyoc-Designs-pinta-book-shelf.jpg"  class="img-thumbnail"/>  </div>
-<!__ do not make Id of division, or it will create a block separately using that id styling.Make id of img  ></div>
-
-
-<br>
-
-<br>
 <br>
 
 <!image hyperlink>
 <div align="center">
-<br>
 
-<br>
 <p><div class="fb-like" data-href="{{request.build_absolute_url}}" data-layout="button_count" data-action="like" data-size="large" data-show-faces="true" data-share="true"></div>
 
 <!__ for fb like button __>
@@ -127,7 +158,6 @@ $(this).attr('scrollamount',12);
 
 
 </div>
-<br> <br><br> <br><br> <br>
 
 
 
@@ -145,7 +175,6 @@ way of writing a for loop in html, posts is the instance created in views.py, po
 to print a variable- this syntax. post is also the instance created in the python shell while publishing the post 
  end of for loop 
 by div tag the post names have appeared in separate lines 
-
 -->
 
 
