@@ -6,7 +6,7 @@
 {%if post.category.category_type == "Reviews"%}
 
 <div class="postA">
-<li > <h4><a href="{% url 'post_detail' pk=post.pk %}" >{{ post.title }}</a></h4></li>
+<h4><a href="{% url 'post_detail' pk=post.pk %}" >{{ post.title }}</a></h4>
 
 {%endif%}
 {%endfor%}

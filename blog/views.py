@@ -18,7 +18,7 @@ from django.shortcuts import render
 from django.db.models import Q
 from django.contrib.auth.forms import UserCreationForm
 #from django.core.context_processors import csrf
-
+from django.core.urlresolvers import reverse
 from django import http
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse,Http404,HttpResponseRedirect
@@ -74,14 +74,6 @@ def review_pg(request):
 
 
 
-
-
-
-
-
-
-
-
 @login_required
 def category_remove(request, name, pk):
     category = get_object_or_404(Category, pk=pk)
@@ -89,11 +81,10 @@ def category_remove(request, name, pk):
     return HttpResponse("<html><h1>Category successfully deleted</h1></html>")
     #return redirect('blog.views.category_list')
 
-from django.core.urlresolvers import reverse
+
 def post_remove(request, pk):
-    post = get_object_or_404(Post, pk=pk)
-    #u = Post.objects.get(pk=id).delete()
-    post.delete()
+    #post = get_object_or_404(Post, pk=pk)
+    u = Post.objects.get(pk=pk).delete()
     return HttpResponse("<html><h1>Post successfully deleted</h1></html>")
     
     """posts=Post.objects.all()
