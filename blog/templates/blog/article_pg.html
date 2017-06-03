@@ -1,0 +1,13 @@
+{%extends 'blog/base.html' %}
+
+{%block article%}
+
+{%for post in posts%}
+{%if post.category.category_type == "Articles"%}
+
+<div class="postA">
+<li > <h4><a href="{% url 'post_detail' pk=post.pk %}" >{{ post.title }}</a></h4></li>
+
+{%endif%}
+{%endfor%}
+{%endblock%}

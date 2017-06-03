@@ -30,6 +30,13 @@ urlpatterns =[
     url(r'^(?P<name>(\w+\s*)*)/(?P<num>\d+)$', views.filtered_post_list, name='filtered_post_list'),
     url(r'^category/(?P<name>\w+\s*\w+)/(?P<pk>\d+)/remove/$', views.category_remove, name='category_remove'),
 
+
+
+
+    url(r'^poems/$', views.poem_pg, name='poem_pg'),
+    url(r'^articles/$', views.article_pg, name='article_pg'),
+    url(r'^reviews/$', views.review_pg, name='review_pg'),
+
     #here pk is used so that every page opened can have its own primary key
     #the pk is allotted by default
 

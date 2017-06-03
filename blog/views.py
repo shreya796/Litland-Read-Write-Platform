@@ -28,6 +28,60 @@ from django.db.models import Q
 from django.contrib.auth.models import User
 
 
+
+def poem_pg(request):
+    posts = Post.objects.all()
+    categories = Category.objects.all
+
+    # test code of paginator
+
+    context = {
+        'posts': posts,
+        'categories': categories,
+    }
+
+    return render(request, 'blog/poem_pg.html', context)
+
+
+def article_pg(request):
+    posts = Post.objects.all()
+    categories = Category.objects.all
+
+    # test code of paginator
+
+    context = {
+        'posts': posts,
+        'categories': categories,
+    }
+
+    return render(request, 'blog/article_pg.html', context)
+
+
+
+def review_pg(request):
+    posts = Post.objects.all()
+    categories = Category.objects.all
+
+    # test code of paginator
+
+    context = {
+        'posts': posts,
+        'categories': categories,
+    }
+
+    return render(request, 'blog/review_pg.html', context)
+
+
+
+
+
+
+
+
+
+
+
+
 @login_required
 def category_remove(request, name, pk):
     category = get_object_or_404(Category, pk=pk)

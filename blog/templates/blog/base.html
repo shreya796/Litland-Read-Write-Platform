@@ -21,23 +21,12 @@
 <link rel="stylesheet" href="{% static 'css/blog.css' %}">  
 
 
-
-
-
-
-
 <!alert box>
 <script type="text/javascript">  //anonymous func
 function msg()
 { document.getElementById('show').onclick=alert('please check the details carefully.');}
 
-
-
-
-
 </script>
-
-
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
@@ -54,7 +43,7 @@ body {font-family: Verdana,sans-serif;}
 
 /* Caption text */
 .text {
-  color: #f2f2f2;
+  color: black;
   font-size: 15px;
   padding: 8px 12px;
   position: absolute;
@@ -113,8 +102,6 @@ body {font-family: Verdana,sans-serif;}
 
 
 
-
-
 </head> 
 <!__Nav bar__>
 
@@ -157,15 +144,7 @@ inverse, primary , info , default - 4 conceptual color classes available for nav
 <span class="icon-bar"></span>
 
 </button>                                                                         
-
-
-
-
 </div>
-
-
-
-
 
 <div class="collapse navbar-collapse" id="topNavBar">
 <ul class= "nav navbar-nav">
@@ -177,18 +156,11 @@ inverse, primary , info , default - 4 conceptual color classes available for nav
 </a>   </li>
 
 
-
-
-
-
 <li  class="">
 <a href ="{%url 'post_detail' pk=4 %} ">
 <font size="5" ><span class="glyphicon glyphicon-hand-o-right" aria-hidden="true">About</span></font>&nbsp;
 
 </a>   </li>
-
-
-
 
 
 <li >
@@ -208,11 +180,28 @@ inverse, primary , info , default - 4 conceptual color classes available for nav
   {%endfor%}
 
 
+
+
+
+
+
+
+
+<li><a href="{% url 'poem_pg'  %}" style="font-family:fantasy; font-size: 22px;color: brown;">
+    Poems</a></li>
+<li><a href="{% url 'article_pg'  %}"  style="font-family:fantasy; font-size: 22px;color: brown;">
+    Articles</a></li>
+<li><a href="{% url 'review_pg'  %}" style="font-family:fantasy; font-size: 22px;color: brown;">
+    Reviews</a></li>
+
+
+
+
+
+{%comment%}
     <li><a href="{% url 'filtered_post_list' name=category.category_type num=3 %}" 
     style="font-family:fantasy; font-size: 22px;color: brown;">
     Poems</a></li>
-
-
 
     <li><a href="{% url 'filtered_post_list' name=category.category_type num=2 %}"  
      style="font-family:fantasy; font-size: 22px;color: brown;">
@@ -222,6 +211,7 @@ inverse, primary , info , default - 4 conceptual color classes available for nav
     <li><a href="{% url 'filtered_post_list' name=category.category_type num=1 %}"  
      style="font-family:fantasy; font-size: 22px;color: brown;">
     Reviews</a></li>
+{%endcomment%}
 
 
   </ul>
@@ -232,18 +222,6 @@ inverse, primary , info , default - 4 conceptual color classes available for nav
 </li>
 
 </ul>
-
-
-
-
-
-
-
-
-
-
-
-
 
 <form class="navbar-form navbar-left" role="search" method="GET" action=" " >
 <div class="form-group">
@@ -275,7 +253,6 @@ inverse, primary , info , default - 4 conceptual color classes available for nav
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 </a>
 </li>
-
 
 
 <li  class="nav navbar-nav navbar-right">
@@ -314,24 +291,11 @@ inverse, primary , info , default - 4 conceptual color classes available for nav
 </ul>
 {%endif%}
 
-
-
-
-
 </nav>
 </div>
 </div>
 
-
-
-
-
-
-
-
 </a>   </li>
-
-
 
 {%block part%}  <!__for post_list __>
 
@@ -349,12 +313,6 @@ inverse, primary , info , default - 4 conceptual color classes available for nav
 </html>
 
 {%endblock%}
-
-
-
-
-
-
 
 <!--
 {%block body%}  
@@ -377,21 +335,12 @@ inverse, primary , info , default - 4 conceptual color classes available for nav
 
 
 
+{%block poem%}
+{%endblock%}
 
-{%comment%}
+{%block article%}
+{%endblock%}
 
-<a href ="{%url 'category_list' %} "></a>
+{%block review%}
+{%endblock%}
 
-<li  class="">
-<a href="{% url 'filtered_post_list' name=category.category_type num=3 %}"><span class="glyphicon glyphicon-star" aria-hidden="true">Poetry</span></a>
-</a>   </li>
-
-<li  class="">
-<a href="{% url 'filtered_post_list' name=category.category_type num=2 %}"><span class="glyphicon glyphicon-certificate" aria-hidden="true">Articles</span></a>
-</a>   </li>
-
-<li  class="">
-<a href="{% url 'filtered_post_list' name=category.category_type num=1 %}"><span class="glyphicon glyphicon-book" aria-hidden="true">Reviews</span></a>
-</a>   </li>
-
-{%endcomment%}

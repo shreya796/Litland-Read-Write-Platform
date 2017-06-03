@@ -1,7 +1,10 @@
 <h4><a href="{% url 'category_list' %}">Categories</a></h4>
+
+{%comment%}
 {% for category in categories %}
 <h6><a href="{% url 'filtered_post_list' name=category.category_type num=category.pk %}">{{category.category_type}}</a></h6>
 {% endfor %}
+{%endcomment%}
 
 
 
