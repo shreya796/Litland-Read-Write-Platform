@@ -151,7 +151,7 @@ def login_user(request):
 
 
 def post_list(request):
-    posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
+    posts = Post.objects.filter(drafts=False).filter(published_date__lte=timezone.now()).order_by('published_date')
     categories = Category.objects.all
     query=request.GET.get("q")
     if query:
@@ -294,5 +294,7 @@ def register(request):
 
 
 def post_draft_list(request):
-    posts=Post.objects.filter(published_date__isnull=True).order_by('created_date')
+    posts=Post.objects.filter(drafts=True).order_by('created_date')
     return render(request,'blog/post_draft_list.html',{'posts':posts})
+
+#posts=Post.objects.filter(drafts=True).filter(published_date__isnull=True).order_by('created_date')

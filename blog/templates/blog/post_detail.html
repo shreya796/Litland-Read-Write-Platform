@@ -4,20 +4,43 @@
 
 {% block content %}
     <p class="postA">
-        {% if post.published_date %}
+    {%if not post.drafts%}
+          {% if post.published_date %}
             <div class="date">
              {{ post.published_date }} </p>
             </div>
         {% endif %}
+        {%endif%}
+     
         {%if user.is_authenticated%}
         {%if post.author == user %}
         <a class="btn btn-default" href="{% url 'post_edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
-{%endif%}
-{%endif%}
+        {%endif%}
+        {%endif%}
+        {%if post.image%}
+        <img src='{{post.image.url}}', class='image-responsive' />
+        {%endif%}
         <h4>{{ post.title }}</h4>
+        <small>
+        {%if post.drafts%}
+        <span style="color:red;">Draft
+         </span>
+        {%endif%}
+        {{post.publish}}
+       
+
+        </small>
         <p >{{ post.text|linebreaksbr }}</p>
 
+
+
+
         {%comment A%}
+
+     
+
+
+        <a href="{{post.get_absolute_url}}">
          {%if post.get_full_name%}
         }
         <p>Author: {{post.author.get_full_name}}</p>

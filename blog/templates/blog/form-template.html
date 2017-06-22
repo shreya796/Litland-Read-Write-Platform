@@ -1,4 +1,37 @@
 {%for field in form%}
+
+<head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+<script>
+                $(function() {
+                        $( "#id_publish" ).datepicker({
+                                dateFormat: "yy-mm-dd",
+                                defaultDate: "+1w",
+                                changeMonth: true,
+                                numberOfMonths: 2,
+                                onClose: function( selectedDate ) {
+                                        $( "#id_service_date" ).datepicker( "option", "minDate", selectedDate );
+                                }
+                        });
+                });
+        </script>
+
+
+
+</head>
+
+
+
+
+
+
+
+
+
+
+
     <div class="form-group">
         <div class="col-sm-offset-2-col-sm-10">
             <span class="text-danger small">{{field.errors}}</span>

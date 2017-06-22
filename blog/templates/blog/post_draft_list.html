@@ -4,11 +4,15 @@
 		   {%comment%}
 <h2 align="center">DRAFT</h2>
  {%endcomment%}
+
+
+
+
 {% for post in posts %}
-	<h2>Post Number : {{post.pk}}</h2>
+	Post Number : {{post.pk}}
 	<div class="Post" >
 
-		<h3><a href="{% url 'post_detail' pk=post.pk  %}">{{ post.title}}</a></h3>
+		<h1><a href="{% url 'post_detail' pk=post.pk  %}">{{ post.title}}</a></h1>
         <p>{{ post.text|truncatechars:200 }}</p>
 		<p class="date">created on: {{ post.created_date|date:'d-m-Y' }}</p>
 	</div>
